@@ -1,0 +1,177 @@
+{% load static %}
+<!DOCTYPE HTML>
+<html>
+<head>
+<title>New Shop a E-Commerce Online Shopping Category Flat Bootstrap Responsive Website Template | Home :: w3layouts</title>
+<!--css-->
+<link href="{% static 'css/bootstrap.css' %}" rel="stylesheet" type="text/css" media="all"/>
+<link href="{% static 'css/style.css ' %}"rel="stylesheet" type="text/css" media="all" />
+<link href="{% static 'css/font-awesome.css' %}" rel="stylesheet">
+<!--css-->
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="keywords" content="New Shop Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template, 
+Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
+<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+<script src="js/jquery.min.js"></script>
+<link href='//fonts.googleapis.com/css?family=Cagliostro' rel='stylesheet' type='text/css'>
+<link href='//fonts.googleapis.com/css?family=Open+Sans:400,800italic,800,700italic,700,600italic,600,400italic,300italic,300' rel='stylesheet' type='text/css'>
+<!--search jQuery-->
+	<script src="js/main.js"></script>
+<!--search jQuery-->
+<script src="js/responsiveslides.min.js"></script>
+ <script>
+    $(function () {
+      $("#slider").responsiveSlides({
+      	auto: true,
+      	nav: true,
+      	speed: 500,
+        namespace: "callbacks",
+        pager: true,
+      });
+    });
+ </script>
+ <!--mycart-->
+<script type="text/javascript" src="js/bootstrap-3.1.1.min.js"></script>
+ <!-- cart -->
+<script src="js/simpleCart.min.js"></script>
+<!-- cart -->
+  <!--start-rate-->
+<script src="js/jstarbox.js"></script>
+	<link rel="{% static 'stylesheet' %}" href="css/jstarbox.css" type="text/css" media="screen" charset="utf-8" />
+		<script type="text/javascript">
+			jQuery(function() {
+			jQuery('.starbox').each(function() {
+				var starbox = jQuery(this);
+					starbox.starbox({
+					average: starbox.attr('data-start-value'),
+					changeable: starbox.hasClass('unchangeable') ? false : starbox.hasClass('clickonce') ? 'once' : true,
+					ghosting: starbox.hasClass('ghosting'),
+					autoUpdateAverage: starbox.hasClass('autoupdate'),
+					buttons: starbox.hasClass('smooth') ? false : starbox.attr('data-button-count') || 5,
+					stars: starbox.attr('data-star-count') || 5
+					}).bind('starbox-value-changed', function(event, value) {
+					if(starbox.hasClass('random')) {
+					var val = Math.random();
+					starbox.next().text(' '+val);
+					return val;
+					} 
+				})
+			});
+		});
+		</script>
+<!--//End-rate-->
+</head>
+<body>
+	
+		<!--header-->
+		{% include 'template/userheader.html' %}
+		{% for single in alldata %}
+			<div class="accessories-w3l">
+				<div class="container">
+					<span>{{ single.productname}}</span>
+				</div>
+			</div>
+			<!--accessories-->
+			<!--Products-->
+				
+			<div class="latest-w3">
+				<div class="container">
+					<h3 class="tittle1">Comment's</h3>
+					<div class="latest-grids">
+						<div class="col-md-3"></div>
+						<div class="col-md-6 latest-grid">
+							<form action="/saverating/" method="post">
+{% csrf_token %}	
+				{% for user in alldata2 %}
+							
+							<input  type="hidden" value="{{ user.user }}" name="t1">
+							<input  type="hidden" value="{{ user.email }}" name="t2">
+							<input  type="hidden" value="{{ user.image }}" name="t3">
+							<input  type="hidden" value="{{ single.p_id }}" name="t4">
+				{% endfor %}			
+
+								
+								<textarea required="required" name="t5" class="form-control"
+								 placeholder="Add Comment"></textarea><br/><br/>
+								<select name="t6" class="form-control" required="required">
+									<option value="">Select Rating </option>
+									<option value="1">1</option>
+									<option value="2">2</option>
+									<option value="3">3</option>
+									<option value="4">4</option>
+									<option value="5">5</option>
+								</select>
+								<br/><br/>
+							<input type="submit" value="Save" class="btn btn-success">
+						</form>
+						</div>
+						<div class="clearfix"></div>
+					</div>
+					
+				</div>
+			</div>
+				<div class="new-arrivals-w3agile">
+					<div class="container">
+						<h3 class="tittle1">Show All Comment's</h3>
+						<div class="arrivals-grids">
+
+							{% for comment in alldata3 %}
+							<div class="col-md-3 arrival-grid simpleCart_shelfItem">
+								<div class="grid-arr">
+									<div  class="grid-arrival">
+										<figure>		
+											<img src="{{ single.image.url }}" width="100%"> 		
+										</figure>	
+									</div>
+									<div class="ribben">
+										<p>{{ comment.rating}} <img src="{% static 'star1.png' %}"  height=20 width="20"> </p>
+									</div>
+									
+									<div class="women">
+										<h6><a href="single.html">Comment :- {{ comment.comment}}</a></h6>
+										<h6><a href="single.html">By :-{{ comment.name}}</a></h6>
+
+									
+									</div>
+								</div>
+							</div>
+							
+							{% endfor %}
+							<div class="clearfix"></div>
+						</div>
+					</div>
+				</div>
+			<!--new-arrivals-->
+		</div>
+		<!--content-->
+		{% endfor %}
+		
+												<!--quantity-->
+														<script>
+														$('.value-plus1').on('click', function(){
+															var divUpd = $(this).parent().find('.value1'), newVal = parseInt(divUpd.text(), 10)+1;
+															divUpd.text(newVal);
+														});
+
+														$('.value-minus1').on('click', function(){
+															var divUpd = $(this).parent().find('.value1'), newVal = parseInt(divUpd.text(), 10)-1;
+															if(newVal>=1) divUpd.text(newVal);
+														});
+														</script>
+													<!--quantity-->
+											</div>
+											<div class="clearfix"> </div>
+										</div>
+										
+								</div>
+							</div>
+							<div class="clearfix"></div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+</body>
+</html>
+{% include 'template/footer.html' %}

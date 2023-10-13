@@ -1,0 +1,16 @@
+<html>
+<head>
+<h1><center> WELCOME  TO OUR REGISTRATION PAGE</center></h1>
+</head>
+<body>
+<form action="/registerdata/" method="POST">
+{% csrf_token %}
+<center> Username <input type="text" name="t1"/></br> </br>
+Password<input type="pwd" name="t2"/></br> </br>
+Cpassword <input type="pwd" name="t3"/></br> </br>
+e-mail <input type="text" name="t4"/></br> </br>
+Phone <input type="text" name="t5"/></br> </br>
+<button type="submit"> SUBMIT</button> </center> </br>
+</form>
+</body>
+</html>

@@ -1,0 +1,103 @@
+{% load static %}
+
+<!DOCTYPE HTML>
+<html>
+<head>
+<title>New Shop a E-Commerce Online Shopping Category Flat Bootstrap Responsive Website Template | Registered :: w3layouts</title>
+<!--css-->
+<link href="{% static 'css/bootstrap.css' %}" rel="stylesheet" type="text/css" media="all"/>
+<link href="{% static 'css/style.css ' %}"rel="stylesheet" type="text/css" media="all" />
+<link href="{% static 'css/font-awesome.css' %}" rel="stylesheet">
+<!--css-->
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="keywords" content="New Shop Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template, 
+Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
+<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+<script src="{% static 'js/jquery.min.js' %}"></script>
+<link href='//fonts.googleapis.com/css?family=Cagliostro' rel='stylesheet' type='text/css'>
+<link href='//fonts.googleapis.com/css?family=Open+Sans:400,800italic,800,700italic,700,600italic,600,400italic,300italic,300' rel='stylesheet' type='text/css'>
+<!--search jQuery-->
+	<script src="{% static 'js/main.js' %}"></script>
+<!--search jQuery-->
+
+ <!--mycart-->
+<script type="text/javascript" src="{% static 'js/bootstrap-3.1.1.min.js' %}"></script>
+<!-- cart -->
+<script src="{% static 'js/simpleCart.min.js' %}"></script>
+<!-- cart -->
+</head>
+<body>
+	<!--header-->
+		{% include 'template/adminheader.html' %}
+		<!--header-->
+		<!--banner-->
+		<div class="banner1">
+			<div class="container">
+				<h3><a href="/user/">user</a> / <span>Registered</span></h3>
+			</div>
+		</div>
+	<!--banner-->
+
+	<!--content-->
+		<div class="content">
+				<!--login-->
+			<div class="login">
+		<div class="main-agileits">
+				<div class="form-w3agile form1">
+					<h3>ADD PRODUCT</h3>
+					<form action="/registerproduct/" method="POST" enctype="multipart/form-data">
+						{% csrf_token %}
+						<div class="key">
+							<i class="fa fa-user" aria-hidden="true"></i>
+							<select name="t1">
+								<option>Select Cat</option>
+								<option value="men">MEN</option>
+								<option value="women">WOMEN</option>
+								<option value="kids">KIDS</option>
+							</select>	
+							<div class="clearfix"></div>
+						</div>
+						<div class="key">
+														<input  type="text" value="Product name" name="t2" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Product name';}" required="">
+							<div class="clearfix"></div>
+						</div>
+						<div class="key">
+							<i class="fa fa-user" aria-hidden="true"></i>
+							<input  type="text" value="Product Price" name="t3" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Product Price';}" required="">
+							<div class="clearfix"></div>
+						</div>
+						
+						<div class="key">
+							<i class="fa fa-user" aria-hidden="true"></i>
+							<input  type="text" value="feature of product" name="t4" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'feature of product';}" required="">
+							<div class="clearfix"></div>
+						</div>
+						<div class="key">
+							<i class="fa fa-user" aria-hidden="true"></i>
+							<input  type="text" value="size" name="t5" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'size';}" required="">
+							<div class="clearfix"></div>
+						</div>
+						<div class="key">
+							<i class="fa fa-user" aria-hidden="true"></i>
+							<input  type="text" value="color" name="t6" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'color';}" required="">
+							<div class="clearfix"></div>
+						</div>
+<div class="key">
+							<i class="fa fa-user" aria-hidden="true"></i>
+							<input  type="text" value="Product-id" name="t7" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Product-id';}" required="">
+							<div class="clearfix"></div>
+						</div>
+<div class="key">
+							<i class="fa fa-user" aria-hidden="true"></i>
+							Image<input  type="file" name="t8" required="">
+							<div class="clearfix"></div>
+						<input type="submit" value="Submit">
+					</form>
+				</div>
+				
+			</div>
+		</div>
+				<!--login-->
+		</div>
+{% include 'template/footer.html' %}

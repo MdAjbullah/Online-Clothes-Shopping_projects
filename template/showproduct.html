@@ -1,0 +1,74 @@
+{% load static %}
+
+<!DOCTYPE HTML>
+<html>
+<head>
+<title>New Shop a E-Commerce Online Shopping Category Flat Bootstrap Responsive Website Template | Registered :: w3layouts</title>
+<!--css-->
+<link href="{% static 'css/bootstrap.css' %}" rel="stylesheet" type="text/css" media="all"/>
+<link href="{% static 'css/style.css ' %}"rel="stylesheet" type="text/css" media="all" />
+<link href="{% static 'css/font-awesome.css' %}" rel="stylesheet">
+<!--css-->
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="keywords" content="New Shop Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template, 
+Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
+<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+<script src="{% static 'js/jquery.min.js' %}"></script>
+<link href='//fonts.googleapis.com/css?family=Cagliostro' rel='stylesheet' type='text/css'>
+<link href='//fonts.googleapis.com/css?family=Open+Sans:400,800italic,800,700italic,700,600italic,600,400italic,300italic,300' rel='stylesheet' type='text/css'>
+<!--search jQuery-->
+	<script src="{% static 'js/main.js' %}"></script>
+<!--search jQuery-->
+
+ <!--mycart-->
+<script type="text/javascript" src="{% static 'js/bootstrap-3.1.1.min.js' %}"></script>
+<!-- cart -->
+<script src="{% static 'js/simpleCart.min.js' %}"></script>
+<!-- cart -->
+</head>
+<body>
+	<!--header-->
+		{% include 'template/adminheader.html' %}
+		<!--header-->
+		<!--banner-->
+		<div class="banner1">
+			<div class="container">
+				<h3><a href="/user/">Admin</a> / <span>Show Product</span></h3>
+			</div>
+		</div>
+	<!--banner-->
+
+	<!--content-->
+		<div class="container">
+					<table border="1" height="auto" width="900" cellspacing="0" class="table table-striped" >
+<tr>
+<th>category</th>
+<th>productname</th>
+<th>productprice</th>
+<th>featureofproduct</th>
+<th>size</th>
+<th>color</th>
+<th>productid</th>
+<th>image</th>
+<th>Action</th>
+</tr>2
+{% for x in alldata %}
+<tr>
+<th>{{x.category}}</th>
+<th>{{x.productname}}</th>
+<th>{{x.productprice}}</th>
+<th>{{x.featureofproduct}}</th>
+<th>{{x.size}}</th>
+<th>{{x.color}}</th>
+<th>{{x.productid}}</th>
+<th><img src="{{x.image.url}}" height=100 width=100 /></th>
+<th><a href="{% url 'deletepro' pk=x.p_id %}" class="btn btn-danger">Delete</a></th>
+</tr>
+{% endfor %}
+</table>
+
+				
+				<!--login-->
+		</div>
+{% include 'template/footer.html' %}

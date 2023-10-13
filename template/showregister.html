@@ -1,0 +1,17 @@
+<table height="400" width="450" border="1" align="center" bordercolor="red" bgcolor="pink">
+<tr>
+<th>Username</th>
+<th>emailid</th>
+<th>Password</th>
+<th>Cpassword</th>
+<th>Phone</th>
+</tr>
+{% for x in alldata %}
+<tr>
+<th>{{x.name}}</th>
+<th>{{x.email}}</th>
+<th>{{x.password}}</th>
+<th>{{x.cpassword}}</th>
+<th>{{x.no}}</th>
+</tr>
+{% endfor %}
